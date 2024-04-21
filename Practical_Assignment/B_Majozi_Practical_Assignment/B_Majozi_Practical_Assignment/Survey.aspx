@@ -13,9 +13,9 @@
     <header>
         <h2 class="logo">Survey</h2>
         <nav class="navigation">
-             <asp:HyperLink ID="reports" runat="server">Reports</asp:HyperLink>
+             <asp:HyperLink  href="#" ID="reports" runat="server">Reports</asp:HyperLink>
+             <asp:HyperLink  href="#" ID="HyperLink1" runat="server">Take Survey</asp:HyperLink>
             
-            <a href="#" >Take Survey</a>
         </nav>
     </header>
 
@@ -28,6 +28,10 @@
             <h2>Personal details</h2>
             <form action="#" runat="server">
 
+                  <div class="input-box">
+               
+       <label>Please fill the form below to take our survey </label>
+  </div> 
                 <div class="input-box">
                      <label>Full Names </label>
                     <asp:TextBox ID="userName"  type="text" runat="server" required="true" ></asp:TextBox>

@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\",
+  "WorkspaceRootPath": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|c:\\users\\busisani majozi\\desktop\\busisani_majozi_assignment\\iservice\\iservice\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|solutionrelative:iservice\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|c:\\users\\busisani majozi\\desktop\\busisani_majozi_assignment\\iservice\\iservice\\service1.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\iservice\\service1.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|solutionrelative:iservice\\service1.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|c:\\users\\busisani majozi\\desktop\\busisani_majozi_assignment\\iservice\\iservice\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|c:\\users\\busisani majozi\\documents\\github\\busisanii\\practical_assignment\\iservice\\iservice\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|solutionrelative:iservice\\iservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\iservice\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{1473EA1C-C58D-4EFA-9779-E7D939C9C8E3}|IService\\IService.csproj|solutionrelative:iservice\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
@@ -22,15 +22,15 @@
       "DocumentGroups": [
         {
           "DockedHeight": 73,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\Web.config",
+              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\Web.config",
               "RelativeDocumentMoniker": "IService\\Web.config",
-              "ToolTip": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\Web.config",
+              "ToolTip": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\Web.config",
               "RelativeToolTip": "IService\\Web.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
@@ -39,26 +39,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IService1.cs",
-              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\IService1.cs",
+              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\IService1.cs",
               "RelativeDocumentMoniker": "IService\\IService1.cs",
-              "ToolTip": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\IService1.cs",
+              "ToolTip": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\IService1.cs",
               "RelativeToolTip": "IService\\IService1.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAiwB0AAAAXAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAiwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T09:40:00.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Service1.svc.cs",
-              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\Service1.svc.cs",
+              "DocumentMoniker": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\Service1.svc.cs",
               "RelativeDocumentMoniker": "IService\\Service1.svc.cs",
-              "ToolTip": "C:\\Users\\Busisani Majozi\\Desktop\\Busisani_Majozi_Assignment\\IService\\IService\\Service1.svc.cs",
+              "ToolTip": "C:\\Users\\Busisani Majozi\\Documents\\GitHub\\Busisanii\\Practical_Assignment\\IService\\IService\\Service1.svc.cs",
               "RelativeToolTip": "IService\\Service1.svc.cs",
-              "ViewState": "AQIAAB4AAABAMzMzMzMpwCwAAAAeAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAcwFMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-20T20:35:03.176Z",
               "EditorCaption": ""
