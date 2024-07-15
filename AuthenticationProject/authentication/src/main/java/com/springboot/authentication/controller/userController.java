@@ -16,7 +16,7 @@ import com.springboot.authentication.model.User;
 import com.springboot.authentication.service.userServiceImpl;
 
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class userController {
 
 	@Autowired
@@ -48,19 +48,19 @@ public class userController {
 	}
 	
 	//Can get a user by Id
-	@GetMapping("/user/{userId}")
-	public User getUser(@PathVariable(value ="userId") int userId){
+	@GetMapping("/UserDetails/{userId}")
+	public User getUser(@PathVariable int userId){
 		return userService.getUser(userId);
 	}
 	
 	//Can get all the user's
-	@GetMapping("/user")
+	@GetMapping("/UserDetails")
 	public List<User> getAllUser(){
 		return userService.getListUser();
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public String deleteUser(@PathVariable(value ="userId") int userId) {
+	@DeleteMapping("/UserDetails/{id}")
+	public String deleteUser(@PathVariable int userId) {
 		userService.deleteUser(userId);
 		return "Success";
 	}

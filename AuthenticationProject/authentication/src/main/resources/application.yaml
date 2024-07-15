@@ -5,4 +5,4 @@ spring:
     password: Busisanimajozi
 
  #JPA Setting
-  jpa.hibernate.ddl_auto: create
+  jpa.hibernate.ddl_auto: update
