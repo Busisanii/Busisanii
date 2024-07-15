@@ -1,0 +1,18 @@
+
+<h2>User List</h2>
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let UserDetail of UsersD">
+            <td> {{ UserDetail.userName}} </td>
+            <td> {{ UserDetail.userEmail}} </td>
+            <td> {{ UserDetail.userPhoneNo}} </td>
+            </tr>
+        </tbody>
+    </table>
