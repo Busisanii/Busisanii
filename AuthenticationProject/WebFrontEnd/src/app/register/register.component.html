@@ -1,31 +1,26 @@
-<header>
-    <h2 class="logo">Jozi~Inc</h2>
-    <nav class="navigation">
-        <a [routerLink]="['/LogIn']">Log In</a>
-        <a [routerLink]="['/Home']">Home</a>
-    </nav>
-</header>
 
 <div class="wrapper">
-   
-
     <div class="form-box register">
         <h2>Registration</h2>
-        <form action="#">
+        <form>
             <div class="input-box">
-                <input type="name" class="form-control" id="inputname1" placeholder="Full Name" required>
+                <input type="name" class="form-control" id="inputname1" 
+                placeholder="Full Name" [(ngModel)]="user.userName" [ngModelOptions]="{ standalone: true }" required>
             </div>
 
             <div class="input-box">
-                <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required>
+                <input type="email" class="form-control" id="inputEmail1"
+                 placeholder="Email" [(ngModel)]="user.userEmail" [ngModelOptions]="{ standalone: true }" required>
             </div>
 
             <div class="input-box">
-                <input type="text" class="form-control" id="inputPhone1" placeholder="Contact details" required>
+                <input type="text" class="form-control" id="inputPhone1"
+                 placeholder="Contact details" [(ngModel)]="user.userPhoneNo" [ngModelOptions]="{ standalone: true }" required>
             </div>
 
             <div class="input-box">
-                <input type="password" class="form-control" id="inputPassword1" placeholder="Password" required>
+                <input type="password" class="form-control" id="inputPassword1"
+                 placeholder="Password" [(ngModel)]="user.userPassword" [ngModelOptions]="{ standalone: true }" required>
             </div>
 
             <div class="remember-forgot">
@@ -34,6 +29,10 @@
             </div>
             <button (click)="btnSignUp()" class="btnLogin">Sign up</button>
 
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+              </div>
+              
         <div class="login-register">
             <p>Already have an account? <a [routerLink]="['/LogIn']" class="login-link">Sign In</a></p>
         </div>

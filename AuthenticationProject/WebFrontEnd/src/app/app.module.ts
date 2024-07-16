@@ -10,8 +10,9 @@ import { RegisterComponent } from './register/register.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from './menu/menu.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FormsModule } from '@angular/forms';
+import { UserDetailService } from './user-detail.service';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LogInComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-  
+    FormsModule
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
+  providers: [provideHttpClient(withInterceptorsFromDi()), UserDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

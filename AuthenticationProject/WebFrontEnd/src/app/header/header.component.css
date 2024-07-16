@@ -53,3 +53,8 @@
             transform-origin: left;
             transform: scaleX(1); 
         }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+          }
+          

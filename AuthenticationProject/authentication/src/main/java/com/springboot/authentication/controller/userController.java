@@ -28,7 +28,7 @@ public class userController {
 	}
 	
 	@PostMapping("/registration")
-	public String registerUser(@RequestBody User user) throws Exception {
+	public void registerUser(@RequestBody User user) throws Exception {
 		String tempEmail = user.getUserEmail();
 		if(tempEmail != null && !"".equals(tempEmail)) {
 			User userObj = userService.fetchByEmail(tempEmail);
@@ -37,7 +37,7 @@ public class userController {
 			}
 		}
 		userService.registerUser(user);
-		return "Success";
+		
 	}
 	
 	//Can update the user's details by Id
