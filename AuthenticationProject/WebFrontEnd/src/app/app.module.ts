@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { UserDetailService } from './user-detail.service';
+import { SearchComponent } from './search/search.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UserDetailService } from './user-detail.service';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    SearchComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

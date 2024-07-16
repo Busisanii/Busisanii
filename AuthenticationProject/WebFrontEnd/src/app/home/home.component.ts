@@ -8,6 +8,12 @@ import { UserDetailService } from '../user-detail.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
+delete1() {
+throw new Error('Method not implemented.');
+}
+update() {
+throw new Error('Method not implemented.');
+}
   UsersD: User[];
   
   constructor(private userService: UserDetailService){}

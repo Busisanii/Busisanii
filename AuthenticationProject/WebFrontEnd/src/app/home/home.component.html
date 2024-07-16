@@ -1,4 +1,4 @@
-
+<body>
 <div class="table-wrapper">
     <h2>User List</h2> 
 
@@ -8,6 +8,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -15,9 +17,18 @@
             <td> {{ UserDetail.userName}} </td>
             <td> {{ UserDetail.userEmail}} </td>
             <td> {{ UserDetail.userPhoneNo}} </td>
+            <td> 
+            <div class="search-container">
+                <button (click)="update()">Update</button>
+              </div>
+            </td>
+              <td> 
+              <div class="search-container">
+                <button (click)="delete1()">Delete</button>
+              </div>
+            </td>
             </tr>
         </tbody>
     </table>
-
 </div>
-  
+</body>
