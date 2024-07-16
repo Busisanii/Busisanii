@@ -1,0 +1,43 @@
+<header>
+    <h2 class="logo">Jozi~Inc</h2>
+    <nav class="navigation">
+        <a [routerLink]="['/LogIn']">Log In</a>
+        <a [routerLink]="['/Home']">Home</a>
+    </nav>
+</header>
+
+<div class="wrapper">
+   
+
+    <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="name" class="form-control" id="inputname1" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <input type="text" class="form-control" id="inputPhone1" placeholder="Contact details" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" class="form-control" id="inputPassword1" placeholder="Password" required>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="Checkbox" id="termsId">
+                    I agree to the terms & conditions</label>
+            </div>
+            <button (click)="btnSignUp()" class="btnLogin">Sign up</button>
+
+        <div class="login-register">
+            <p>Already have an account? <a [routerLink]="['/LogIn']" class="login-link">Sign In</a></p>
+        </div>
+        </form>
+    </div>
+</div>
+
