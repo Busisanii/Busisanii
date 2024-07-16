@@ -11,29 +11,11 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background: url('img/Background.jpg') no repeat; add any pic for background */
+  
     background-size: cover;
     background-position: center;
     }
     
-    header{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px 100px;
-        background-color: #162938;
-        display: flex;
-        justify-content:  space-between;
-        align-items: center;
-        z-index: 99;
-    }
-    
-    .logo {
-        font-size: 2em;
-        color: #fff;
-        user-select: none;
-        }
         
         .navigation a {
             position: relative;
@@ -88,7 +70,7 @@
                 width: 400px;
                 height: 500px;
                 right: -37%;
-                top: 110px;
+                top: 40px;
                 background: transparent;
                 border: 2px solid rgba(255, 255, 255, 0.5);
                 border-radius: 20px;
