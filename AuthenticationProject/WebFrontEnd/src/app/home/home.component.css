@@ -1,6 +1,6 @@
 .table-wrapper{
     margin-top: 100px;
-    overflow-y: visible;
+    /*overflow-y: visible;*/
   }
   .table-wrapper h2 {
     left: 13%;

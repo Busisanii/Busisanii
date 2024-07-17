@@ -11,10 +11,11 @@ import { LogInComponent } from './log-in/log-in.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDetailService } from './user-detail.service';
 import { SearchComponent } from './search/search.component';
 import { ContactComponent } from './contact/contact.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,14 @@ import { ContactComponent } from './contact/contact.component';
     SidebarComponent,
     SearchComponent,
     ContactComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule, // Add ReactiveFormsModule here
   ],
   providers: [provideHttpClient(withInterceptorsFromDi()), UserDetailService],
   bootstrap: [AppComponent]

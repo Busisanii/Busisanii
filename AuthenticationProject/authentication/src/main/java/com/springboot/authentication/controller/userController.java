@@ -41,7 +41,7 @@ public class userController {
 	}
 	
 	//Can update the user's details by Id
-	@PutMapping("/user/{userId}")
+	@PutMapping("/UserDetails/{userId}")
 	public String updateUser(@RequestBody User user) {
 		userService.updateUser(user);
 		return "Success";
@@ -59,7 +59,7 @@ public class userController {
 		return userService.getListUser();
 	}
 	
-	@DeleteMapping("/UserDetails/{id}")
+	@DeleteMapping("/UserDetails/{userId}")
 	public String deleteUser(@PathVariable int userId) {
 		userService.deleteUser(userId);
 		return "Success";

@@ -39,21 +39,18 @@ public class userServiceImpl implements userService{
 
 	@Override
 	public String deleteUser(int userId) {
-		// TODO Auto-generated method stub
-		User user = getUser(userId);
+		User user = userRepo.findById(userId).get();
 		userRepo.delete(user);
 		return "Success";
 	}
 
 	@Override
 	public User getUser(int userId) {
-		// TODO Auto-generated method stub
 		return userRepo.findById(userId).get();
 	}
 
 	@Override
 	public List<User> getListUser() {
-		// TODO Auto-generated method stub
 		return userRepo.findAll();
 	}
 	

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserDetailService } from '../user-detail.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -8,18 +10,35 @@ import { UserDetailService } from '../user-detail.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-delete1() {
-throw new Error('Method not implemented.');
-}
-update() {
-throw new Error('Method not implemented.');
-}
+  userID: number;
+
   UsersD: User[];
-  
-  constructor(private userService: UserDetailService){}
+
+
+  constructor(private userService: UserDetailService,
+    private router: Router, private route: ActivatedRoute
+  ){}
 
   ngOnInit(): void {
     this.userService.getUserList().subscribe(data => {
-      this.UsersD = data;});
+    this.UsersD = data});
   }
+
+ 
+
+  btnDelete() {
+    this.userService.deleteUser(this.userID).subscribe(() => {
+      if(User == null){
+        this.UsersD = this.UsersD.filter(user => user.userId !== this.userID);
+        console.log('User deleted successfully');
+      }
+    },  error => {
+      console.error('Error deleting user', error);
+    });
+  }
+  
+  btnUpdate() {
+    this.router.navigate(['/Update']);
+  }
+  
 }

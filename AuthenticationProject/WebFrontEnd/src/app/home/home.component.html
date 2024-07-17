@@ -1,10 +1,10 @@
 <body>
 <div class="table-wrapper">
     <h2>User List</h2> 
-
     <table class = "table table-striped">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
@@ -13,18 +13,19 @@
             </tr>
         </thead>
         <tbody>
-        <tr *ngFor = "let UserDetail of UsersD">
-            <td> {{ UserDetail.userName}} </td>
-            <td> {{ UserDetail.userEmail}} </td>
-            <td> {{ UserDetail.userPhoneNo}} </td>
+        <tr *ngFor = "let User of UsersD">
+            <td> {{ User.userId}} </td>
+            <td>  {{User.userName}} </td>
+            <td> {{ User.userEmail}} </td>
+            <td> {{ User.userPhoneNo}} </td>
             <td> 
             <div class="search-container">
-                <button (click)="update()">Update</button>
+                <button (click)="btnUpdate()">Update</button>
               </div>
             </td>
               <td> 
               <div class="search-container">
-                <button (click)="delete1()">Delete</button>
+                <button (click)="btnDelete()">Delete</button>
               </div>
             </td>
             </tr>

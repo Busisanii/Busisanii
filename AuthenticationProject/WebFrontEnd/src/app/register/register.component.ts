@@ -15,6 +15,7 @@ export class RegisterComponent{
     userEmail: '',
     userPassword: '',
     userPhoneNo: '',
+    userId: 0,
   }; 
   errorMessage: string = '';
   successMessage: string = '';
@@ -41,11 +42,11 @@ btnSignUp() {
 }
 resetForm() {
   this.user ={
+    userId: 0,
     userName: '',
     userEmail: '',
     userPassword: '',
     userPhoneNo: '',
-
   }; 
 }
 

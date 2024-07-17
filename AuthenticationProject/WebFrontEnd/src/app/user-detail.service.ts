@@ -20,4 +20,20 @@ export class UserDetailService {
     return this.http.post<User>(`${this.baseURL}/registration`, newUser)
   }
 
+  searchUser(userID: number): Observable<any>{
+    return this.http.get<any>(`${this.baseURL}/UserDetails/${userID}`);
+  }
+
+  deleteUser(userId: number): Observable<any>{
+   // if (userId == null) {
+   // var uId  = this.http.get<User>(userId)
+   // }
+    return this.http.delete<void>(`${this.baseURL}/UserDetails/${userId}`);
+  }
+
+  updateUser(userId: number): Observable<User> {
+    const url = `${this.baseURL}/UserDetails/${userId}`;
+    return this.http.put<User>(url, userId);
+  }
+    
 }
