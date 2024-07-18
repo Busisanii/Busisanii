@@ -10,29 +10,34 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './update.component.css'
 })
 export class UpdateComponent implements OnInit{
-  user: User = {
+  users: User[] = [];
+  userId: any;
+  user: User ={
     userName: '',
     userEmail: '',
     userPassword: '',
     userPhoneNo: '',
-    userId: 0
-  };
- 
+    userId: 0,
+  }; 
+  
   constructor(private userService: UserDetailService,
     private router: Router, private route: ActivatedRoute,
    
   ){}
   ngOnInit(): void {
-    this.userService.searchUser(this.user.userId).subscribe(data => {
-      this.user = data;});
+   let sub = this.route.params.subscribe(params =>{
+    this.userId = params['id'];
+   });
+   //console.log("The Id is: "+ this.userId);
+   this.userService.searchUser(this.userId).subscribe(data =>{
+    this.user = data;
+   })
   }
    
 btnSubmit() {
-  
-    this.userService.updateUser(this.user.userId).subscribe(() => {
-      this.router.navigate(['/user', this.user.userEmail]
-      );
+    this.userService.updateUser(this.user).subscribe(data => {
     });
+    this.router.navigate(['Home']);
   }
 }
 

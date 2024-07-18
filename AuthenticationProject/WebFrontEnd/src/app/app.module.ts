@@ -16,6 +16,9 @@ import { UserDetailService } from './user-detail.service';
 import { SearchComponent } from './search/search.component';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
+import { RequestComponent } from './request/request.component';
+import { NotificationComponent } from './notification/notification.component';
+import { AddSchoolComponent } from './add-school/add-school.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { UpdateComponent } from './update/update.component';
     SearchComponent,
     ContactComponent,
     UpdateComponent,
+    RequestComponent,
+    NotificationComponent,
+    AddSchoolComponent,
   ],
   imports: [
     BrowserModule,

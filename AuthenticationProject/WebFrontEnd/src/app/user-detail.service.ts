@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap } from 'rxjs';
+import { catchError, map, Observable, tap } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
@@ -12,28 +12,29 @@ export class UserDetailService {
 
   constructor(private http: HttpClient) { }
   
+    //100% working
   getUserList(): Observable<User[]>{
    return this.http.get<User[]>(`${this.baseURL}/UserDetails`);
   }
-
+  //100% working
   createUser(newUser: User): Observable<User> {
     return this.http.post<User>(`${this.baseURL}/registration`, newUser)
   }
 
-  searchUser(userID: number): Observable<any>{
-    return this.http.get<any>(`${this.baseURL}/UserDetails/${userID}`);
-  }
-
-  deleteUser(userId: number): Observable<any>{
-   // if (userId == null) {
-   // var uId  = this.http.get<User>(userId)
-   // }
-    return this.http.delete<void>(`${this.baseURL}/UserDetails/${userId}`);
-  }
-
-  updateUser(userId: number): Observable<User> {
+  searchUser(userId: number): Observable<any>{
     const url = `${this.baseURL}/UserDetails/${userId}`;
-    return this.http.put<User>(url, userId);
+    return this.http.get<User>(url);
+  }
+
+  //100% working
+  deleteUser(userId: number): Observable<User>{
+    const url = `${this.baseURL}/UserDetails/${userId}`;
+    return this.http.delete<User>(url);
+  }
+
+  updateUser(user: User): Observable<User> {
+    const url = `${this.baseURL}/UserDetails/${user.userId}`;
+    return this.http.put<User>(url, user);
   }
     
 }

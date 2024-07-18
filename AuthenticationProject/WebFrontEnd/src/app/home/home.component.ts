@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserDetailService } from '../user-detail.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { async } from 'rxjs';
 
 
 @Component({
@@ -10,9 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-  userID: number;
 
-  UsersD: User[];
+  UsersD: User[] = [];
 
 
   constructor(private userService: UserDetailService,
@@ -24,21 +24,20 @@ export class HomeComponent implements OnInit{
     this.UsersD = data});
   }
 
- 
 
-  btnDelete() {
-    this.userService.deleteUser(this.userID).subscribe(() => {
-      if(User == null){
-        this.UsersD = this.UsersD.filter(user => user.userId !== this.userID);
-        console.log('User deleted successfully');
-      }
-    },  error => {
-      console.error('Error deleting user', error);
-    });
+
+  btnDelete(u: number) {
+    if(confirm('Are you sure you want to delete this user')){
+      this.userService.deleteUser(u).subscribe((res:any) => {
+          alert("User Deleted");
+      });
+    }
+    this.router.navigate(['Home']);
+   
   }
   
-  btnUpdate() {
-    this.router.navigate(['/Update']);
+  btnUpdate(userId: any) {
+    this.router.navigate(['/Update', userId]);
   }
   
 }

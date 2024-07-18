@@ -5,6 +5,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
+import { RequestComponent } from './request/request.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [  
    { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -12,7 +14,9 @@ const routes: Routes = [
   { path: 'Register', component: RegisterComponent },
   { path: 'LogIn', component: LogInComponent },
   { path: 'Contact', component: ContactComponent },
-  { path: 'Update', component: UpdateComponent },
+  { path: 'Update/:id', component: UpdateComponent },
+  {path: 'Request', component: RequestComponent},
+  {path: 'Notification', component: NotificationComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,4 +1,4 @@
-<body>
+
 <div class="table-wrapper">
     <h2>User List</h2> 
     <table class = "table table-striped">
@@ -8,8 +8,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th>Action</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -20,16 +20,12 @@
             <td> {{ User.userPhoneNo}} </td>
             <td> 
             <div class="search-container">
-                <button (click)="btnUpdate()">Update</button>
-              </div>
-            </td>
-              <td> 
-              <div class="search-container">
-                <button (click)="btnDelete()">Delete</button>
+                <button type="button"  (click)="btnUpdate(User.userId)">Update</button>&nbsp;&nbsp;
+                <span class="separator">|</span>
+                <button type="button" (click)="btnDelete(User.userId)">Delete</button>
               </div>
             </td>
             </tr>
         </tbody>
     </table>
 </div>
-</body>

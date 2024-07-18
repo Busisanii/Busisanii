@@ -1,6 +1,7 @@
 .table-wrapper{
     margin-top: 100px;
-    /*overflow-y: visible;*/
+    overflow-x: hidden;
+    
   }
   .table-wrapper h2 {
     left: 13%;
@@ -10,10 +11,9 @@
   .table {
     padding-top: 32px;
     position: relative;
-    width: 80%;
+    width: 70%;
     top: 25px;
     left: 12%;
-    overflow-y: auto;
   }
   .search-container {
     display: flex;
@@ -22,19 +22,16 @@
   }
 
   .search-container button {
-    padding: 4px 10px;
+    padding: 4px 5px;
     background-color: #4f657e;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
-  
   .search-container button:hover {
     background-color: #0056b3;
   }
-  body {
-    overflow-y: auto; /* Prevent horizontal overflow */
-  }
+ 
   
   
