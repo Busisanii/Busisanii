@@ -1,18 +1,22 @@
 package com.springboot.authentication.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.springboot.authentication.model.User;
 import com.springboot.authentication.repository.userRepository;
 
 @Service
-public class userServiceImpl implements userService{
+public class userServiceImpl implements userService, UserDetailsService{
 
 	@Autowired
-	userRepository userRepo;
+	private userRepository userRepo;
 	
 	public userServiceImpl() {
 	
@@ -56,6 +60,16 @@ public class userServiceImpl implements userService{
 	
 	public User fetchByEmail(String email) {
 		return userRepo.findByuserEmail(email);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
+		  User user = userRepo.findByuserEmail(userEmail);
+		        return new org.springframework.security.core.userdetails.User(
+		            user.getUserEmail(),
+		            user.getUserPassword(),
+		            new ArrayList<>()
+		        );
 	}
 
 }

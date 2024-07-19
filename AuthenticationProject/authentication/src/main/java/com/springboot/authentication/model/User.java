@@ -71,5 +71,4 @@ public void setUserPhoneNo(String userPhoneNo) {
 	this.userPhoneNo = userPhoneNo;
 }
   
-  
 }
