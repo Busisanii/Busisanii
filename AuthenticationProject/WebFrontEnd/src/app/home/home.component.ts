@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit{
       });
     }
     this.router.navigate(['Home']);
+    this.userService.getUserList().subscribe(data => {
+      this.UsersD = data});
    
   }
   
