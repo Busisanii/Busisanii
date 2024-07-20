@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { UserDetailService } from '../user-detail.service';
 import { User } from '../user';
@@ -8,29 +8,32 @@ import { User } from '../user';
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
-  users: User[];
+export class SearchComponent{
+  userId: any;
+  user: User ={
+    userName: '',
+    userEmail: '',
+    userPassword: '',
+    userPhoneNo: '',
+    userId: 0,
+  }; 
   constructor(
     private route: ActivatedRoute,
     private userService: UserDetailService,
     private router: Router
   ) { }
 
-  getUserById(id: number): any {
-    return this.users.find(user => user.userId === id);
-  }
 
-onSearch() {
-  this.route.params.subscribe(params => {
-    const userId = params['UserId'];
-    if (!userId) {
-      this.userService.searchUser(this.getUserById(userId)).subscribe(user => {
-        this.router.navigate(['/Update']);
-      }, error => {
-        console.error('Error fetching user', error);
-      });
-    } 
-  });
+
+onSearch(userId: any) {
+  let sub = this.route.params.subscribe(params =>{
+    this.userId = params['id'];
+   });
+   //console.log("The Id is: "+ userId);
+   this.userService.searchUser(userId).subscribe(data =>{
+    this.user = data;
+   })
+  this.router.navigate(['/ViewUser', userId]);
 }
 
 }

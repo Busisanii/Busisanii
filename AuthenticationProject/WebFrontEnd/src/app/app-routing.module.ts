@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
 import { RequestComponent } from './request/request.component';
 import { NotificationComponent } from './notification/notification.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 const routes: Routes = [  
    { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'Contact', component: ContactComponent },
   { path: 'Update/:id', component: UpdateComponent },
   {path: 'Request', component: RequestComponent},
-  {path: 'Notification', component: NotificationComponent}
+  {path: 'Notification', component: NotificationComponent},
+  {path: 'ViewUser/:id', component: ViewUserComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

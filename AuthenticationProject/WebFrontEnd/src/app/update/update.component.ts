@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './update.component.css'
 })
 export class UpdateComponent implements OnInit{
-  users: User[] = [];
   userId: any;
   user: User ={
     userName: '',

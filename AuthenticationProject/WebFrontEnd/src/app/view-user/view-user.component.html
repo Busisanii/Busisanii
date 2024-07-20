@@ -1,0 +1,31 @@
+
+<div class="table-wrapper">
+    <h2>User List</h2> 
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Action</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td> {{ users.userId}} </td>
+            <td>  {{users.userName}} </td>
+            <td> {{ users.userEmail}} </td>
+            <td> {{ users.userPhoneNo}} </td>
+            <td> 
+            <div class="search-container">
+                <button type="button"  (click)="btnUpdate(users.userId)">Update</button>&nbsp;&nbsp;
+                <button type="button" (click)="btnDelete(users.userId)">Delete</button>
+              </div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

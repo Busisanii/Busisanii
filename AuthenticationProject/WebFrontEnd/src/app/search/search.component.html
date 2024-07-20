@@ -1,5 +1,7 @@
 <div class="search-container">
-    <input type="text" placeholder="Search..." />
-    <button (click)="onSearch()">Search</button>
+  
+    <input type="text" class="form-control" id="inputId" 
+    placeholder="Search..."  [(ngModel)]="user.userId" [ngModelOptions]="{ standalone: true }" required>
+    <button (click)="onSearch(user.userId)">Search</button>
   </div>
   

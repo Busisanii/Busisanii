@@ -16,9 +16,7 @@ import { UserDetailService } from './user-detail.service';
 import { SearchComponent } from './search/search.component';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
-import { RequestComponent } from './request/request.component';
-import { NotificationComponent } from './notification/notification.component';
-import { AddSchoolComponent } from './add-school/add-school.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -32,16 +30,15 @@ import { AddSchoolComponent } from './add-school/add-school.component';
     SearchComponent,
     ContactComponent,
     UpdateComponent,
-    RequestComponent,
-    NotificationComponent,
-    AddSchoolComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule, // Add ReactiveFormsModule here
+    ReactiveFormsModule,
+  
   ],
   providers: [provideHttpClient(withInterceptorsFromDi()), UserDetailService],
   bootstrap: [AppComponent]
