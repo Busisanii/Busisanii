@@ -3,6 +3,7 @@ package com.springboot.authentication.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.springboot.authentication.model.User;
@@ -13,12 +14,9 @@ public class userServiceImpl implements userService{
 
 	@Autowired
 	private userRepository userRepo;
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 	
-
-	public userServiceImpl() {
-	
-	}
-
 	public userServiceImpl(userRepository userRepo) {
 		super();
 		this.userRepo = userRepo;
@@ -27,7 +25,13 @@ public class userServiceImpl implements userService{
 	@Override
 	public String registerUser(User user) {
 		// add user details in a database
-		userRepo.save(user);
+		String hashedPassword = passwordEncoder.encode(user.getUserPassword());
+        User userObj = new User(user.getUserId(),user.getUserName(), user.getUserEmail(),
+        		hashedPassword, user.getUserPhoneNo(), user.getUserType());
+        if(userObj.getUserType() == null) {
+        	userObj.setUserType("USER");
+		}
+		userRepo.save(userObj);
 		return "Success";
 	}
 
@@ -46,8 +50,8 @@ public class userServiceImpl implements userService{
 	}
 
 	@Override
-	public User getUser(int userId) {
-		return userRepo.findById(userId).get();
+	public User getUser(int userId){
+		return  userRepo.findById(userId).get(); 
 	}
 
 	@Override
@@ -58,5 +62,17 @@ public class userServiceImpl implements userService{
 	public User fetchByEmail(String email) {
 		return userRepo.findByuserEmail(email);
 	}
+	
+	  public String hashPassword(String plainPassword) {
+	        return passwordEncoder.encode(plainPassword);
+	    }
+	  
+	  public boolean verifyPassword(String userEmail, String plainPassword) {
+	        User user = userRepo.findByuserEmail(userEmail);
+	        if (user != null) {
+	            return passwordEncoder.matches(plainPassword, user.getUserPassword());
+	        }
+	        return false;
+	    }
 
 }

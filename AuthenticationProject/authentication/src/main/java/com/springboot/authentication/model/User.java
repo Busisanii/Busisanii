@@ -17,18 +17,20 @@ public class User {
   private String userEmail;
   private String userPassword;
   private String userPhoneNo;
+  private String userType;
   
   public User() {
 	  
   }
 
-public User(int userId, String userName, String userEmail, String userPassword, String userPhoneNo) {
+public User(int userId, String userName, String userEmail, String userPassword, String userPhoneNo, String userType) {
 	super();
 	this.userId = userId;
 	this.userName = userName;
 	this.userEmail = userEmail;
 	this.userPassword = userPassword;
 	this.userPhoneNo = userPhoneNo;
+	this.userType = userType;
 }
 
 public int getUserId() {
@@ -69,6 +71,14 @@ public String getUserPhoneNo() {
 
 public void setUserPhoneNo(String userPhoneNo) {
 	this.userPhoneNo = userPhoneNo;
+}
+
+public String getUserType() {
+	return userType;
+}
+
+public void setUserType(String userType) {
+	this.userType = userType;
 }
   
 }

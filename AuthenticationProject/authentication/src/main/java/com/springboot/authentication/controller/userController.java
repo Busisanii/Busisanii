@@ -3,6 +3,8 @@ package com.springboot.authentication.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +23,9 @@ public class userController {
 
 	@Autowired
 	userServiceImpl userService;
-
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
 	public userController(userServiceImpl userService) {
 		super();
 		this.userService = userService;
@@ -48,8 +52,12 @@ public class userController {
 	
 	//Can get a user by Id
 	@GetMapping("/UserDetails/{userId}")
-	public User getUser(@PathVariable int userId){
-		return userService.getUser(userId);
+	public User getUser(@PathVariable int userId) throws Exception{
+		User userObj = userService.getUser(userId);
+		if(userObj == null) {
+			 throw new Exception("User not found..");
+		 }
+		return userObj;
 	}
 	
 	//Can get all the user's
@@ -58,8 +66,19 @@ public class userController {
 		return userService.getListUser();
 	}
 	
+	//Can delete the user's
 	@DeleteMapping("/UserDetails/{userId}")
 	public void deleteUser(@PathVariable int userId) {
 		userService.deleteUser(userId);
 	}
+	
+    @PostMapping("/login")
+	  public String login(@RequestBody User user) {
+	        User userObj = userService.fetchByEmail(user.getUserEmail());
+	        if (user != null && passwordEncoder.matches(user.getUserPassword(), userObj.getUserPassword())) {
+	            return "Successfully login";
+	        } else {
+	            return "Invalid username or password";
+	        }
+	    }
 }
