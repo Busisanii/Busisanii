@@ -27,9 +27,13 @@ export class SearchComponent{
 
 onSearch(userId: any) {
   let sub = this.route.params.subscribe(params =>{
-    this.userId = params['id'];
+    this.user.userId = params['id'];
    });
    //console.log("The Id is: "+ userId);
+   if(this.user.userId == null && undefined){
+    console.error(this.user.userId +" does not exist.");
+    
+   }
    this.userService.searchUser(userId).subscribe(data =>{
     this.user = data;
    })

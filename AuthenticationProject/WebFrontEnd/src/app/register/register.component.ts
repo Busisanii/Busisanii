@@ -30,11 +30,10 @@ btnSignUp() {
       if (response) {
        this.successMessage = 'User created successfully:';
        this.errorMessage ='';
-       this.resetForm();
-
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/LogIn']);
+        this.router.navigateByUrl('/LogIn', { skipLocationChange: true }).then(() => {
         });
+        this.resetForm();
+        this.router.navigate(['/LogIn']);
         this.errorMessage = 'User created successfully:';
       } 
     }, 

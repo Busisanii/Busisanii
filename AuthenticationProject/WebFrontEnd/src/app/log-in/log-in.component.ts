@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { User } from '../user';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserDetailService } from '../user-detail.service';
 
 @Component({
   selector: 'app-log-in',
@@ -6,9 +9,32 @@ import { Component } from '@angular/core';
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
+  userEmail: string;
+  userPassword: string;
+  user: User ={
+    userName: '',
+    userEmail: '',
+    userPassword: '',
+    userPhoneNo: '',
+    userId: 0
+  };
+ 
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserDetailService,
+    private router: Router
+  ) { }
   
 btnSignIn() {
-throw new Error('Method not implemented.');
+  this.userService.LoginUser(this.user.userEmail, this.user.userPassword).subscribe(
+    success => {
+      if (success) {
+        this.router.navigateByUrl('/Home');
+      } else {
+        this.router.navigate(['/LogIn']);
+      }
+    }
+  );
 }
 
 }

@@ -11,7 +11,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [  
-   { path: '', redirectTo: '/Home', pathMatch: 'full' },
+   { path: '', redirectTo: '/LogIn', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Register', component: RegisterComponent },
   { path: 'LogIn', component: LogInComponent },

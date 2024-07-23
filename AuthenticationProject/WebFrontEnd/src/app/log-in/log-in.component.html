@@ -3,15 +3,16 @@
     
     <div class="form-box login">
         <h2>Login</h2>
-        <form action="#">
-            <div class="input-box">   
-                <input type="email" class="form-control" id="inputEmail2" placeholder="Email" required>
-            </div>
+       <form action="#">
+        <div class="input-box">
+            <input type="email" class="form-control" id="inputEmail"
+             placeholder="Email" [(ngModel)]="user.userEmail" [ngModelOptions]="{ standalone: true }" required>
+        </div>
 
-            <div class="input-box">
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Password" required>
-            
-            </div>
+        <div class="input-box">
+            <input type="password" class="form-control" id="inputPassword"
+             placeholder="Password" [(ngModel)]="user.userPassword" [ngModelOptions]="{ standalone: true }" required>
+        </div>
 
             <div class="remember-forgot">
                 <label><input type="Checkbox">
@@ -24,5 +25,5 @@
         <div class="login-register">
             <p>Don't have an account? <a [routerLink]="['/Register']" class="register-link">Register</a></p>
         </div>
-        </form>
+    </form>
     </div>

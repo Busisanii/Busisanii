@@ -25,9 +25,8 @@ public class userServiceImpl implements userService{
 	@Override
 	public String registerUser(User user) {
 		// add user details in a database
-		String hashedPassword = passwordEncoder.encode(user.getUserPassword());
         User userObj = new User(user.getUserId(),user.getUserName(), user.getUserEmail(),
-        		hashedPassword, user.getUserPhoneNo(), user.getUserType());
+        		hashPassword(user.getUserPassword()), user.getUserPhoneNo(), user.getUserType());
         if(userObj.getUserType() == null) {
         	userObj.setUserType("USER");
 		}

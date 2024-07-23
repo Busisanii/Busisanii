@@ -18,6 +18,7 @@ import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LogoutComponent } from './logout/logout.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    NotificationComponent,
     SearchComponent,
     ContactComponent,
     UpdateComponent,

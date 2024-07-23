@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,7 +74,11 @@ public class userController {
     @PostMapping("/login")
 	  public String login(@RequestBody User user) {
 	        User userObj = userService.fetchByEmail(user.getUserEmail());
-	        if (user != null && passwordEncoder.matches(user.getUserPassword(), userObj.getUserPassword())) {
+	        String tempEmail = user.getUserEmail();
+	        if (user.getUserPassword() == null && tempEmail == null && "".equals(tempEmail)) {
+	            throw new IllegalArgumentException("rawPassword cannot be null!");
+	        }
+	        if (userObj != null && passwordEncoder.matches(user.getUserPassword(), userObj.getUserPassword())) {
 	            return "Successfully login";
 	        } else {
 	            return "Invalid username or password";

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
@@ -37,5 +37,28 @@ export class UserDetailService {
     const url = `${this.baseURL}/UserDetails/${user.userId}`;
     return this.http.put<User>(url, user);
   }
-    
+  
+  LoginUser(userEmail: string, password: string): Observable<boolean> {
+    const url = `${this.baseURL}/login`;
+    console.log("User email is "+userEmail + " Password: " + password); //Debug to see output
+    return this.http.post<{ token: string }>(url, {userEmail, password })
+      .pipe(
+        map(response => {
+          localStorage.setItem('token', response.token);
+          return true;
+        }),
+        catchError(error => {
+          console.error(error);
+          return of(false);
+        })
+      );
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }

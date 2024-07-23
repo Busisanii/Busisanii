@@ -36,7 +36,7 @@ export class UpdateComponent implements OnInit{
 btnSubmit() {
     this.userService.updateUser(this.user).subscribe(data => {
     });
-    this.router.navigate(['Home']);
+    this.router.navigateByUrl('Home');
   }
 }
 
