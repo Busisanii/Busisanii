@@ -38,15 +38,41 @@ export class UserDetailService {
     return this.http.put<User>(url, user);
   }
   
-  UserLogin(user: User): Observable<User> {
-    return this.http.post<User>(`${this.baseURL}/login`, user)
-  }
+  //UserLogin(user: User): Observable<User> {
+   // return this.http.post<User>(`${this.baseURL}/login`, user)
+  //}
 
-  logout() {
-    localStorage.removeItem('token');
-  }
+
+ logout(): void {
+  localStorage.removeItem('token');
+  localStorage.removeItem('roles');
+}
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
+
+  getUserRoles(): string[] {
+    const roles = localStorage.getItem('roles');
+    return roles ? JSON.parse(roles) : [];
+  }
+
+  UserLogin(user: User): Observable<User> {
+  
+debugger;
+    if (user.userEmail && user.userPassword && user.userRole == 'ADMIN' ) {
+      localStorage.setItem('token', 'admin-token');
+   
+      return this.http.post<User>(`${this.baseURL}/login`, user)
+
+    } else if (user.userEmail  && user.userPassword && user.userRole == 'USER') {
+      localStorage.setItem('token', 'user-token');
+  
+      return this.http.post<User>(`${this.baseURL}/login`, user)
+    }else{
+     return this.http.post<User>(`${this.baseURL}/login`, user)
+    }
+   
+  }
+  
 }

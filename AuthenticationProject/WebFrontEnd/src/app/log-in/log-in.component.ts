@@ -9,8 +9,7 @@ import { UserDetailService } from '../user-detail.service';
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
-  userEmail: string;
-  userPassword: string;
+
   user: User ={
     userName: '',
     userEmail: '',
@@ -32,7 +31,9 @@ btnSignIn() {
       this.user.userEmail;
       this.user.userPassword;
       if (success) {
+        localStorage.setItem('roles', JSON.stringify([success]));
         this.router.navigateByUrl('/Home');
+      
       } else {
         this.router.navigateByUrl('/LogIn');
       }

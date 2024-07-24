@@ -9,7 +9,7 @@ import { User } from '../user';
   styleUrl: './search.component.css'
 })
 export class SearchComponent{
-  userId: any;
+  
   user: User ={
     userName: '',
     userEmail: '',
@@ -31,7 +31,7 @@ onSearch(userId: any) {
     this.user.userId = params['id'];
    });
    //console.log("The Id is: "+ userId);
-   if(this.user.userId == null && undefined){
+   if(this.user.userId == null && undefined && this.user.userId == 0){
     console.error(this.user.userId +" does not exist.");
     
    }

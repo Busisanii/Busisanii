@@ -10,22 +10,20 @@ import { NotificationComponent } from './notification/notification.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { roleGuard } from './role.guard';
 
 const routes: Routes = [  
   { path: '', redirectTo: '/LogIn', pathMatch: 'full' },
   { path: 'LogIn', component: LogInComponent },
-  //{ path: '', component: DashboardComponent, children: [
-    { path: 'Home', component: HomeComponent },
+    { path: 'Home', component: HomeComponent, canActivate: [roleGuard], data: {expectedRoles: ['ADMIN']}},
     { path: 'Register', component: RegisterComponent },
     { path: 'Contact', component: ContactComponent },
-    { path: 'Update/:id', component: UpdateComponent },
-    {path: 'Request', component: RequestComponent},
+    { path: 'Update/:id', component: UpdateComponent, canActivate: [roleGuard], data: {expectedRoles: ['ADMIN']} },
+    {path: 'Request', component: RequestComponent, canActivate: [roleGuard], data: {expectedRoles: ['USER']}},
     {path: 'Notification', component: NotificationComponent},
-    {path: 'ViewUser/:id', component: ViewUserComponent},
+    {path: 'ViewUser/:id', component: ViewUserComponent, canActivate: [roleGuard], data: {expectedRoles: ['ADMIN']}},
     {path: 'Logout', component: LogoutComponent},
     {path: 'Dashboard', component: DashboardComponent}
- // ] },
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
