@@ -16,6 +16,7 @@ export class SearchComponent{
     userPassword: '',
     userPhoneNo: '',
     userId: 0,
+    userRole: ''
   }; 
   constructor(
     private route: ActivatedRoute,

@@ -55,8 +55,10 @@ public class userController {
 		User userObj = userService.getUser(userId);
 		if(userObj == null) {
 			 throw new Exception("User not found..");
+		 }else {
+			 return userObj; 
 		 }
-		return userObj;
+		
 	}
 	
 	//Can get all the user's
@@ -72,16 +74,19 @@ public class userController {
 	}
 	
     @PostMapping("/login")
-	  public String login(@RequestBody User user) {
+	  public boolean login(@RequestBody User user) {
 	        User userObj = userService.fetchByEmail(user.getUserEmail());
 	        String tempEmail = user.getUserEmail();
-	        if (user.getUserPassword() == null && tempEmail == null && "".equals(tempEmail)) {
+	        String tempPassword = user.getUserPassword();
+	        
+	        if (tempPassword == null && tempEmail == null && "".equals(tempEmail)) {
 	            throw new IllegalArgumentException("rawPassword cannot be null!");
 	        }
-	        if (userObj != null && passwordEncoder.matches(user.getUserPassword(), userObj.getUserPassword())) {
-	            return "Successfully login";
+	     
+	        if (userObj != null && passwordEncoder.matches(tempPassword, userObj.getUserPassword())) {
+	            return true;
 	        } else {
-	            return "Invalid username or password";
+	            return false;
 	        }
 	    }
 }

@@ -38,20 +38,8 @@ export class UserDetailService {
     return this.http.put<User>(url, user);
   }
   
-  LoginUser(userEmail: string, password: string): Observable<boolean> {
-    const url = `${this.baseURL}/login`;
-    console.log("User email is "+userEmail + " Password: " + password); //Debug to see output
-    return this.http.post<{ token: string }>(url, {userEmail, password })
-      .pipe(
-        map(response => {
-          localStorage.setItem('token', response.token);
-          return true;
-        }),
-        catchError(error => {
-          console.error(error);
-          return of(false);
-        })
-      );
+  UserLogin(user: User): Observable<User> {
+    return this.http.post<User>(`${this.baseURL}/login`, user)
   }
 
   logout() {

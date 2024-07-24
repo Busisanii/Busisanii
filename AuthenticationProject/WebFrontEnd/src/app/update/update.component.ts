@@ -17,6 +17,7 @@ export class UpdateComponent implements OnInit{
     userPassword: '',
     userPhoneNo: '',
     userId: 0,
+    userRole: ''
   }; 
   
   constructor(private userService: UserDetailService,

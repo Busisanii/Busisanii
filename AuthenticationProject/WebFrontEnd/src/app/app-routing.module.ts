@@ -9,18 +9,23 @@ import { RequestComponent } from './request/request.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { LogoutComponent } from './logout/logout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [  
-   { path: '', redirectTo: '/LogIn', pathMatch: 'full' },
-  { path: 'Home', component: HomeComponent },
-  { path: 'Register', component: RegisterComponent },
+  { path: '', redirectTo: '/LogIn', pathMatch: 'full' },
   { path: 'LogIn', component: LogInComponent },
-  { path: 'Contact', component: ContactComponent },
-  { path: 'Update/:id', component: UpdateComponent },
-  {path: 'Request', component: RequestComponent},
-  {path: 'Notification', component: NotificationComponent},
-  {path: 'ViewUser/:id', component: ViewUserComponent},
-  {path: 'Logout', component: LogoutComponent}
+  //{ path: '', component: DashboardComponent, children: [
+    { path: 'Home', component: HomeComponent },
+    { path: 'Register', component: RegisterComponent },
+    { path: 'Contact', component: ContactComponent },
+    { path: 'Update/:id', component: UpdateComponent },
+    {path: 'Request', component: RequestComponent},
+    {path: 'Notification', component: NotificationComponent},
+    {path: 'ViewUser/:id', component: ViewUserComponent},
+    {path: 'Logout', component: LogoutComponent},
+    {path: 'Dashboard', component: DashboardComponent}
+ // ] },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

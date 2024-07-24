@@ -16,7 +16,8 @@ export class LogInComponent {
     userEmail: '',
     userPassword: '',
     userPhoneNo: '',
-    userId: 0
+    userId: 0,
+    userRole: ''
   };
  
   constructor(
@@ -26,12 +27,14 @@ export class LogInComponent {
   ) { }
   
 btnSignIn() {
-  this.userService.LoginUser(this.user.userEmail, this.user.userPassword).subscribe(
-    success => {
+  this.userService.UserLogin(this.user).subscribe(
+    (success) => {
+      this.user.userEmail;
+      this.user.userPassword;
       if (success) {
         this.router.navigateByUrl('/Home');
       } else {
-        this.router.navigate(['/LogIn']);
+        this.router.navigateByUrl('/LogIn');
       }
     }
   );
