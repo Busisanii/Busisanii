@@ -21,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { NotificationComponent } from './notification/notification.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RequestComponent } from './request/request.component';
+import { roleGuard } from './role.guard';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { RequestComponent } from './request/request.component';
     ReactiveFormsModule,
   
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi()), UserDetailService],
+  providers: [provideHttpClient(withInterceptorsFromDi()), UserDetailService, roleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

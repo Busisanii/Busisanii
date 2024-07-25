@@ -7,18 +7,20 @@ import { UserDetailService } from './user-detail.service';
   providedIn: 'root'
 })
 export class roleGuard implements CanActivate {
-  constructor(private authService: UserDetailService, private router: Router) { }
 
-canActivate(route: ActivatedRouteSnapshot, 
-  state: RouterStateSnapshot): boolean| UrlTree| MaybeAsync<GuardResult> {
-    const expectedRoles = route.data['expectedRoles'];
-    const userRoles = this.authService.getUserRoles();
-
-    if (this.authService.isLoggedIn() && expectedRoles.some((role: string) => userRoles.includes(role))) {
-      return true;
-    } else {
-      return this.router.createUrlTree(['/LogIn']);
-    }
-}
+    constructor(private authService: UserDetailService, private router: Router) { }
+  
+  canActivate(route: ActivatedRouteSnapshot, 
+    state: RouterStateSnapshot): boolean| UrlTree| MaybeAsync<GuardResult> {
+      const expectedRoles = route.data['expectedRoles'];
+      const userRoles = this.authService.getUserRoles();
+  
+      if (this.authService.isLoggedIn() && expectedRoles.some((role: string) => userRoles.includes(role))) {
+        return true;
+      } else {
+        return this.router.createUrlTree(['/LogIn']);
+      }
+  }
+  
 
 }

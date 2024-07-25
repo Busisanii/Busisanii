@@ -38,11 +38,6 @@ export class UserDetailService {
     return this.http.put<User>(url, user);
   }
   
-  //UserLogin(user: User): Observable<User> {
-   // return this.http.post<User>(`${this.baseURL}/login`, user)
-  //}
-
-
  logout(): void {
   localStorage.removeItem('token');
   localStorage.removeItem('roles');
@@ -59,7 +54,6 @@ export class UserDetailService {
 
   UserLogin(user: User): Observable<User> {
   
-debugger;
     if (user.userEmail && user.userPassword && user.userRole == 'ADMIN' ) {
       localStorage.setItem('token', 'admin-token');
    
