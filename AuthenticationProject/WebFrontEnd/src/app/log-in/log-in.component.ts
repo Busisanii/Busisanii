@@ -33,7 +33,6 @@ btnSignIn() {
         this.user.userPassword 
        
       if (success) {
-     console.log(success.userRole);
         this.router.navigateByUrl('/Home');
         this.router.navigateByUrl('/Request');
       

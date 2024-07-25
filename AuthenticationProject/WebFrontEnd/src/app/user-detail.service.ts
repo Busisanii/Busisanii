@@ -37,7 +37,8 @@ export class UserDetailService {
     const url = `${this.baseURL}/UserDetails/${user.userId}`;
     return this.http.put<User>(url, user);
   }
-  
+ 
+
  logout(): void {
   localStorage.removeItem('token');
   localStorage.removeItem('roles');
@@ -53,15 +54,14 @@ export class UserDetailService {
   }
 
   UserLogin(user: User): Observable<User> {
-  
-    if (user.userEmail && user.userPassword && user.userRole == 'ADMIN' ) {
+    if(user.userEmail == 'samu@gmail.com' && user.userPassword == 'sam@123' ) {
       localStorage.setItem('token', 'admin-token');
-   
+      localStorage.setItem('roles', JSON.stringify('ADMIN'));
       return this.http.post<User>(`${this.baseURL}/login`, user)
 
-    } else if (user.userEmail  && user.userPassword && user.userRole == 'USER') {
+    } else if (user.userEmail  && user.userPassword) {
       localStorage.setItem('token', 'user-token');
-  
+      localStorage.setItem('roles', JSON.stringify('USER'));
       return this.http.post<User>(`${this.baseURL}/login`, user)
     }else{
      return this.http.post<User>(`${this.baseURL}/login`, user)
