@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserDetailService } from '../user-detail.service';
+import { roleGuard } from '../role.guard';
 
 @Component({
   selector: 'app-log-in',
@@ -9,7 +10,7 @@ import { UserDetailService } from '../user-detail.service';
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
-
+ userObj: User;
   user: User ={
     userName: '',
     userEmail: '',
@@ -28,11 +29,13 @@ export class LogInComponent {
 btnSignIn() {
   this.userService.UserLogin(this.user).subscribe(
     (success) => {
-      this.user.userEmail;
-      this.user.userPassword;
+        this.user.userEmail 
+        this.user.userPassword 
+       
       if (success) {
-        localStorage.setItem('roles', JSON.stringify([success]));
+     
         this.router.navigateByUrl('/Home');
+        this.router.navigateByUrl('/Request');
       
       } else {
         this.router.navigateByUrl('/LogIn');

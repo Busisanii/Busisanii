@@ -58,7 +58,6 @@ public class userController {
 		 }else {
 			 return userObj; 
 		 }
-		
 	}
 	
 	//Can get all the user's
@@ -74,16 +73,18 @@ public class userController {
 	}
 	
     @PostMapping("/login")
-	  public boolean login(@RequestBody User user) {
+	public boolean login(@RequestBody User user) {
 	        User userObj = userService.fetchByEmail(user.getUserEmail());
 	        String tempEmail = user.getUserEmail();
 	        String tempPassword = user.getUserPassword();
 	        
 	        if (tempPassword == null && tempEmail == null && "".equals(tempEmail)) {
-	            throw new IllegalArgumentException("rawPassword cannot be null!");
+	          //  throw new IllegalArgumentException("rawPassword cannot be null!");
+	            return false;
 	        }
-	     
+	        
 	        if (userObj != null && passwordEncoder.matches(tempPassword, userObj.getUserPassword())) {
+	        	userObj.getUserType();
 	            return true;
 	        } else {
 	            return false;

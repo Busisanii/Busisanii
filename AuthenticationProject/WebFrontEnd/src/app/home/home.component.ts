@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserDetailService } from '../user-detail.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { async } from 'rxjs';
 
 
 @Component({
@@ -20,6 +19,7 @@ export class HomeComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    
     this.userService.getUserList().subscribe(data => {
     this.UsersD = data});
   }
